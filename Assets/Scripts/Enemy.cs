@@ -8,13 +8,18 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private Rigidbody2D target;
+    private Rigidbody2D target;
 
     private bool isLive = true;
 
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+
+    private void OnEnable()
+    {
+        target = GameManager.instance.Player.GetComponent<Rigidbody2D>();
+    }
 
     // Start is called before the first frame update
     private void Start()
