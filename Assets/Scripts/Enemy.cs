@@ -18,20 +18,19 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rigidbody;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    
-    private void OnEnable()
-    {
-        target = GameManager.instance.Player.GetComponent<Rigidbody2D>();
-        isLive = true;
-        health = maxHealth;
-    }
 
-    // Start is called before the first frame update
     private void Awake()
     {
         TryGetComponent(out rigidbody);
         TryGetComponent(out animator);
         TryGetComponent(out spriteRenderer);
+    }
+
+    private void OnEnable()
+    {
+        target = GameManager.instance.Player.GetComponent<Rigidbody2D>();
+        isLive = true;
+        health = maxHealth;
     }
 
     private void FixedUpdate()
@@ -51,11 +50,33 @@ public class Enemy : MonoBehaviour
         spriteRenderer.flipX = target.position.x < rigidbody.position.x;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Bullet"))
+            return;
+
+        health -= collision.GetComponent<Bullet>().damage;
+
+        if (health > 0)
+        {
+
+        }
+        else
+        {
+            Dead();
+        }
+    }
+
     public void Init(SpawnData data)
     {
         animator.runtimeAnimatorController = animatorController[data.spriteType];
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+    }
+
+    private void Dead()
+    {
+        gameObject.SetActive(false);
     }
 }
