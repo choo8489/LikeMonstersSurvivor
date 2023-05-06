@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     [Header("[ Player Info ]")]
     [Space(10)]
+    public int health;
+    public int maxHealth = 100;
     public int level;
     public int kill;
     public int exp;
@@ -19,13 +21,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private PoolManager pool;
 
+    public float MaxGameTime => maxGameTime;
     public float GameTime => gameTime;
     public Player Player => player;
     public PoolManager Pool => pool;
+    public int[] NextExp => nextExp;
+
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        health = maxHealth;
     }
 
     private void Update()
