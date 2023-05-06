@@ -16,10 +16,13 @@ public class Player : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
+    private Scanner scanner;
+
     #endregion
 
     #region [ Properties ]
     public Vector2 InputVecter => inputVecter;
+    public Scanner Scanner => scanner;
     #endregion
 
     #region [ MonoBehaviour Messages ]
@@ -28,6 +31,7 @@ public class Player : MonoBehaviour
         TryGetComponent(out rigidbody);
         TryGetComponent(out spriteRenderer);
         TryGetComponent(out animator);
+        TryGetComponent(out scanner);
     }
 
     private void FixedUpdate()

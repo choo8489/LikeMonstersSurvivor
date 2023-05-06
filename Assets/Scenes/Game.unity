@@ -4459,6 +4459,55 @@ Transform:
   m_Father: {fileID: 659099024}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &69612411
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69612412}
+  - component: {fileID: 69612413}
+  m_Layer: 0
+  m_Name: Weapon 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &69612412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69612411}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 636198149}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &69612413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69612411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497c0913cfd1e0942b90c6fe70054cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  prefabId: 2
+  damage: 3
+  count: 1
+  speed: 0.3
 --- !u!1 &127315651
 GameObject:
   m_ObjectHideFlags: 0
@@ -17837,6 +17886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636198149}
   - component: {fileID: 636198152}
+  - component: {fileID: 636198155}
   - component: {fileID: 636198148}
   - component: {fileID: 636198150}
   - component: {fileID: 636198151}
@@ -17917,6 +17967,7 @@ Transform:
   - {fileID: 1600832196}
   - {fileID: 659099024}
   - {fileID: 783220044}
+  - {fileID: 69612412}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18025,6 +18076,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &636198155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636198147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b19bbe1e461334bb986d9e3eb415f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 5
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  nearestTarget: {fileID: 0}
 --- !u!1 &659099023
 GameObject:
   m_ObjectHideFlags: 0
@@ -18123,6 +18191,7 @@ MonoBehaviour:
   enemys:
   - {fileID: 307229518142890189, guid: 42e9e68e80aaefe4dbf31ab0e2ea33d4, type: 3}
   - {fileID: 7973795667264543758, guid: b7b7e567adae1504bb7e19e574b6b619, type: 3}
+  - {fileID: 8429269398596885115, guid: 027109c0ed3275c4bba769a75b230c43, type: 3}
 --- !u!4 &718246968
 Transform:
   m_ObjectHideFlags: 0
@@ -18184,8 +18253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   prefabId: 1
-  dagmage: 11
-  count: 5
+  damage: 0
+  count: 1
   speed: 0
 --- !u!1 &1133112697
 GameObject:
