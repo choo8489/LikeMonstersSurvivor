@@ -6,7 +6,7 @@ public class PoolManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
 
-    private List<GameObject>[] pools;
+    [SerializeField] private List<GameObject>[] pools;
 
     private void Awake()
     {

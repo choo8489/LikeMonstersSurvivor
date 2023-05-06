@@ -18081,6 +18081,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6d2346d6e10644b9511cb1b0ad0b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnData:
+  - spriteType: 0
+    spawnTime: 0.7
+    health: 10
+    speed: 1.5
+  - spriteType: 1
+    spawnTime: 0.2
+    health: 15
+    speed: 2.4
 --- !u!1 &718246966
 GameObject:
   m_ObjectHideFlags: 0
@@ -18111,7 +18120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 6396830262872826027, guid: 4681d573e6dc12e4eb33e1bef44459f8, type: 3}
   - {fileID: 307229518142890189, guid: 42e9e68e80aaefe4dbf31ab0e2ea33d4, type: 3}
 --- !u!4 &718246968
 Transform:
@@ -18157,6 +18165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d399c2c6d23a0504487bf353101d05b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTime: 0
+  maxGameTime: 20
   player: {fileID: 636198152}
   pool: {fileID: 718246967}
 --- !u!4 &1133112699
