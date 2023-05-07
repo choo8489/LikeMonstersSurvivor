@@ -60,6 +60,8 @@ public class Player : MonoBehaviour
 
     #region [ Public Methods ]
 
+    public void SetSpped(float speed) => this.speed = speed;
+
     #endregion
 
     #region [ Private Methods ]
