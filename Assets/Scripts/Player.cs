@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private Scanner scanner;
     private Hand[] hands;
 
+    public RuntimeAnimatorController[] animationController;
+
     #endregion
 
     #region [ Properties ]
@@ -28,6 +30,12 @@ public class Player : MonoBehaviour
     #endregion
 
     #region [ MonoBehaviour Messages ]
+    private void OnEnable()
+    {
+        speed *= Character.Speed;
+        animator.runtimeAnimatorController = animationController[GameManager.instance.playerId];
+    }
+
     private void Awake()
     {
         TryGetComponent(out rigidbody);
@@ -56,6 +64,25 @@ public class Player : MonoBehaviour
         if (inputVecter.x != 0)
         {
             spriteRenderer.flipX = inputVecter.x < 0;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isLive)
+            return;
+
+        GameManager.instance.health -= Time.deltaTime * 10f;
+
+        if (GameManager.instance.health < 0)
+        {
+            for (int i = 2; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            animator.SetTrigger("Dead");
+            GameManager.instance.GameOver();
         }
     }
 
