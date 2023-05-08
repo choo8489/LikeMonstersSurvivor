@@ -40,11 +40,17 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         rigidbody.MovePosition(rigidbody.position + (inputVecter * speed * Time.fixedDeltaTime));
     }
 
     private void LateUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         animator.SetFloat(SPEED, inputVecter.magnitude);
 
         if (inputVecter.x != 0)
