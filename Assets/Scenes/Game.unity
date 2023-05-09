@@ -15036,7 +15036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10000000
-  per: -1
+  per: -100
 --- !u!1 &518031090
 GameObject:
   m_ObjectHideFlags: 0
@@ -15303,7 +15303,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.833333
+  orthographic size: 8.444445
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -20951,6 +20951,7 @@ MonoBehaviour:
     spawnTime: 0.2
     health: 15
     speed: 2.4
+  levelTime: 0
 --- !u!1 &673325286
 GameObject:
   m_ObjectHideFlags: 0
@@ -22586,7 +22587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLive: 0
   gameTime: 0
-  maxGameTime: 20
+  maxGameTime: 300
   playerId: 0
   health: 0
   maxHealth: 100
