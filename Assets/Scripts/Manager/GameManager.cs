@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int level;
     public int kill;
     public int exp;
-    private int[] nextExp = { 10, 30, 60, 100, 150, 210, 280, 360, 450, 600 };
+    private int[] nextExp = { 3, 5, 10, 100, 150, 210, 280, 360, 450, 600 };
 
     [Header("[ Game Object ]")]
     [SerializeField] private Player player;

@@ -12,16 +12,20 @@ public class TileReposition : MonoBehaviour
         Vector3 playerPosition = GameManager.instance.Player.transform.position;
         Vector3 myPosition = transform.position;
 
-        float diffX = Mathf.Abs(playerPosition.x - myPosition.x);
-        float diffY = Mathf.Abs(playerPosition.y - myPosition.y);
 
-        Vector3 playerDirection = GameManager.instance.Player.InputVecter;
-        float directionX = playerDirection.x < 0 ? -1 : 1;
-        float directionY = playerDirection.y < 0 ? -1 : 1;
 
         switch (transform.tag)
         {
             case "Ground":
+                float diffX = (playerPosition.x - myPosition.x);
+                float diffY = (playerPosition.y - myPosition.y);
+
+                float directionX = diffX < 0 ? -1 : 1;
+                float directionY = diffY < 0 ? -1 : 1;
+
+                diffX = Mathf.Abs(diffX);
+                diffY = Mathf.Abs(diffY);
+
                 if (diffX > diffY)
                     transform.Translate(Vector3.right * directionX * 40);
                 else if (diffX < diffY)

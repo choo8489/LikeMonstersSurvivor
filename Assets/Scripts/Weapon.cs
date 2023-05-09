@@ -111,8 +111,8 @@ public class Weapon : MonoBehaviour
             bullet.Rotate(Vector3.forward * 360 * i / count);
             bullet.Translate(bullet.up * 1.5f, Space.World);
 
-            // -1 is Infinity Per;
-            bullet.GetComponent<Bullet>().Initalize(damage, -1, Vector3.zero);
+            // -100 is Infinity Per;
+            bullet.GetComponent<Bullet>().Initalize(damage, -100, Vector3.zero);
         }
     }
 
