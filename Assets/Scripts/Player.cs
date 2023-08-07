@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,8 +33,13 @@ public class Player : MonoBehaviour
     #region [ MonoBehaviour Messages ]
     private void OnEnable()
     {
-        speed *= Character.Speed;
-        animator.runtimeAnimatorController = animationController[GameManager.instance.playerId];
+        Material material = GetComponent<SpriteRenderer>().material;
+        material.SetFloat("_SplitValue", - 1.0f);
+        material.DOFloat(1.0f, "_SplitValue", 1.0f).OnComplete(() =>
+        {
+            speed *= Character.Speed;
+            animator.runtimeAnimatorController = animationController[GameManager.instance.playerId];
+        });
     }
 
     private void Awake()
